@@ -14,9 +14,9 @@ const main = async () => {
 
     if (tareas) {
         //establecer tareas
+        tareas.fromArray(tareasDB);
+        console.log(tareas._listado);
     }
-
-    await pausa();
 
     do {
         // imprimir el menú
@@ -47,7 +47,7 @@ const main = async () => {
                 break;
         }
 
-        // guardarDB(tareas.listadoArr);
+        guardarDB(tareas.listadoArr);
 
         if (opt !== '0') await pausa();
     } while (opt !== '0');
