@@ -28,13 +28,6 @@ class Tareas {
     }
 
     listarTodas() {
-        /**
-         * 1: en verde
-         * Completada: verde
-         * pendiente: rojo
-         * 1. tarea1 :: Completada | Pendiente
-         */
-
         this.listadoArr.forEach((tarea, index) => {
             const idx = `${index + 1}`.green;
             const estado = !!tarea.completadoEn
@@ -43,6 +36,20 @@ class Tareas {
 
             console.log(`${idx}. ${tarea.desc} :: ${estado}`);
         });
+    }
+
+    listarPendientesCompletadas(completadas = true) {
+        this.listadoArr
+            .filter((tarea) =>
+                completadas ? !!tarea.completadoEn : !tarea.completadoEn
+            )
+            .forEach((tarea, index) => {
+                const idx = `${index + 1}`.green;
+                const completado = !!tarea.completadoEn
+                    ? `:: ${tarea.completadoEn}`.green
+                    : ':: Pendiente'.red;
+                console.log(`${idx}. ${tarea.desc} ${completado}`);
+            });
     }
 }
 

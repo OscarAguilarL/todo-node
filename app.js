@@ -27,16 +27,14 @@ const main = async () => {
                 const desc = await leerInput('Descripción: ');
                 tareas.crearTarea(desc);
                 break;
-            case '2':
-                // console.log(tareas._listado);
-                // console.log(tareas.listadoArr);
+            case '2': //* Listar todas las tareas
                 tareas.listarTodas();
                 break;
-            case '3':
-                // Crear opción
+            case '3': //* Listar las tareas COMPLETADAS
+                tareas.listarPendientesCompletadas(true);
                 break;
-            case '4':
-                // Crear opción
+            case '4': //* Listar las tareas PENDIENTES
+                tareas.listarPendientesCompletadas(false);
                 break;
             case '5':
                 // Crear opción
